@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 为textEditor构件定义bean -->
+	<bean id="textEditor" class="com.cookie.SpringEx.TextEditor">
+		<!-- 基于构造函数的依赖注入使用constructor-arg标签 -->
+		<!-- <constructor-arg ref="spellChecker"/> -->
+		
+		<!-- 若存在不止一个参数，那么在bean中定义的顺序与构造函数中的顺序相同即可 -->
+		<!-- 若传递给构造函数的参数类型不同，容器可以使用与简单类型匹配的类型 -->
+		<!-- 传递引用用ref, 传递值用value -->
+		<!-- 
+			<constructor-arg type="int" value="2001"/>
+			<constructor-arg type="java.lang.String" value="Zara"/> 
+		-->
+		
+		<!-- 基于设值函数的依赖注入使用property标签 -->
+		<!-- <property name="spellChecker" ref="spellChecker"></property> -->
+		
+		<!-- 使用内部Bean为基于setter注入进行配置的配置写法 -->
+		<property name="spellChecker">
+			<bean id="spellChecker" class="com.cookie.SpringEx.SpellChecker"></bean>
+		</property>
+	</bean>
+	
+	<!-- 多个设值函数方法，可以用以下的简便写法 -->
+	<!--
+		<bean id="john-classic" class="com.example.Person"
+			p:name="John Doe"
+			p:spouse-ref="jane"/>
+			
+		<bean id="jane" class="com.example.Person"
+			p:name="John Doe"/> 
+	-->
+	
+	<!-- 为spellChecker构件定义bean 
+	<bean id="spellChecker" class="com.cookie.SpringEx.SpellChecker">
+	</bean>-->
+	
+	<!-- Spring 注入集合 -->
+	<bean id="javaCollection" class="com.cookie.SpringEx.JavaCollection">
+		<!-- for java.util.list -->
+		<property name="addressList">
+			<list>
+				<value>China</value>
+				<value>India</value>
+				<value>UK</value>
+				<value>UK</value>
+				<!-- 引用写法(需要提供setter方法) -->
+				<!-- <ref bean="ex1"/> -->
+			</list>
+		</property>
+		
+		<!-- for java.util.set -->
+		<property name="addressSet">
+			<set>
+				<value>China</value>
+				<value>India</value>
+				<value>UK</value>
+				<value>UK</value>
+				<!-- 引用写法(需要提供setter方法) -->
+				<!-- <ref bean="ex1"/> -->
+			</set>
+		</property>
+		
+		<!-- for java.util.map -->
+		<property name="addressMap">
+			<map>
+				<entry key="1" value="China"></entry>
+				<entry key="2" value="India"></entry>
+				<entry key="3" value="UK"></entry>
+				<entry key="4" value="UK"></entry>
+				<!-- 引用写法(需要提供setter方法) -->
+				<!-- <entry key="one" value-ref="ex1"></entry> -->
+			</map>
+		</property>
+		
+		<!-- for java.util.properties -->
+		<property name="addressProp">
+			<props>
+				<prop key="one">China</prop>
+				<prop key="two">India</prop>
+				<prop key="three">UK</prop>
+				<prop key="four">UK</prop>
+				<!-- properties不提供引用写法，只支持字符串键值对 -->
+			</props>
+		</property>
+		<!-- 如果需要传递一个空字符串 -->
+		<!-- <property name="ex" value=""></property> -->
+		<!-- 传递NULL -->
+		<!-- <property name="ex"><null/></property> -->
+		<!-- 相当于JavaCollection.setEx("") or(null) -->
+	</bean>
+	
+</beans>
