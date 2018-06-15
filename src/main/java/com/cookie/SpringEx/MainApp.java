@@ -9,14 +9,14 @@ public class MainApp {
 		//Spring 依赖注入
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext("Beans.xml");
-		/*TextEditor te = (TextEditor)context.getBean("textEditor");
-		te.spellCheck();*/
+		TextEditor te = (TextEditor)context.getBean("textEditor");
+		te.spellCheck();
 		
 		//注入集合
-		JavaCollection jc = (JavaCollection)context.getBean("javaCollection");
+		/*JavaCollection jc = (JavaCollection)context.getBean("javaCollection");
 		jc.getAddressList();
 		jc.getAddressSet();
 		jc.getAddressMap();
-		jc.getAddressProp();
+		jc.getAddressProp();*/
 	}
 }

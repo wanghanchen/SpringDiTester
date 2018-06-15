@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<context:annotation-config></context:annotation-config>
+	
+	<bean id="profile" class="spring.anno.Profile"></bean>
+	
+	<bean id="student1" class="spring.anno.Student">
+		<property name="name" value="Lily"></property>
+		<property name="age" value="12"></property>
+	</bean>
+	
+	<bean id="student2" class="spring.anno.Student">
+		<property name="name" value="john"></property>
+		<property name="age" value="16"></property>
+	</bean>
+	
+	<bean id="student" class="spring.anno.Student">
+		<property name="name" value="Zara"></property>
+		
+		<!-- try without passing age and check the result -->
+		<!-- <property name="age" value="11"/> -->
+	</bean>
+	
+	<bean id="textEditor" class="spring.anno.TextEditor"></bean>
+	<bean id="spellChecker" class="spring.anno.SpellChecker"></bean>
+	
+	<bean id="helloWorld" class="spring.anno.HelloWorld">
+		  
+		<property name="message" value="Hello World"></property>
+	</bean>
+	
+	<bean id="cStartEventHandler" class="spring.anno.CStartEventHandler"></bean>
+	<bean id="cStopEventHandler" class="spring.anno.CStopEventHandler"></bean>
+	
+	<bean id="customEventPublisher" class="spring.anno.CustomEventPublisher"></bean>
+	<bean id="customEventHandler" class="spring.anno.CustomEventHandler"></bean>
+</beans>

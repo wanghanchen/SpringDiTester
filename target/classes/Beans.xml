@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- 为textEditor构件定义bean -->
-	<bean id="textEditor" class="com.cookie.SpringEx.TextEditor">
+	<bean id="textEditor" class="com.cookie.SpringEx.TextEditor" autowire="byName">
 		<!-- 基于构造函数的依赖注入使用constructor-arg标签 -->
 		<!-- <constructor-arg ref="spellChecker"/> -->
 		
@@ -22,9 +22,12 @@
 		<!-- <property name="spellChecker" ref="spellChecker"></property> -->
 		
 		<!-- 使用内部Bean为基于setter注入进行配置的配置写法 -->
-		<property name="spellChecker">
+		<!-- <property name="spellChecker">
 			<bean id="spellChecker" class="com.cookie.SpringEx.SpellChecker"></bean>
-		</property>
+		</property> -->
+		
+		<!-- byName自动装配 autowire属性包括byName byType constructor等可选值-->
+		<property name="name" value="Generic Text Editor"></property>
 	</bean>
 	
 	<!-- 多个设值函数方法，可以用以下的简便写法 -->
@@ -37,9 +40,9 @@
 			p:name="John Doe"/> 
 	-->
 	
-	<!-- 为spellChecker构件定义bean 
+	<!-- 为spellChecker构件定义bean -->
 	<bean id="spellChecker" class="com.cookie.SpringEx.SpellChecker">
-	</bean>-->
+	</bean>
 	
 	<!-- Spring 注入集合 -->
 	<bean id="javaCollection" class="com.cookie.SpringEx.JavaCollection">

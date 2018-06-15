@@ -65,6 +65,27 @@
         <artifactId>spring-webmvc</artifactId>
         <version>4.3.7.RELEASE</version>
     </dependency>
+    <!-- 4.Aop aspect依赖 -->
+    <dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectjrt</artifactId>
+        <version>1.9.1</version>
+    </dependency>
+    <!--<dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectj</artifactId>
+        <version>1.9.1</version>
+    </dependency>-->
+    <dependency>
+    	<groupId>aopalliance</groupId>
+    	<artifactId>aopalliance</artifactId>
+        <version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectjweaver</artifactId>
+        <version>1.9.1</version>
+    </dependency>
   </dependencies>
 
   <build>
