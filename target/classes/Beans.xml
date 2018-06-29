@@ -99,4 +99,7 @@
 		<!-- 相当于JavaCollection.setEx("") or(null) -->
 	</bean>
 	
+	<bean id="helloWorld" class="spring.MVC.HelloWorld">
+		<property name="message" value="Hello World"></property>
+	</bean>
 </beans>
